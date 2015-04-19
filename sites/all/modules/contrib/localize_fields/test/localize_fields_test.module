@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * Code for the Localize Fields test feature.
+ */
+
+include_once 'localize_fields_test.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param array $form
+ * @param array $form_state
+ */
+function localize_fields_test_form_localize_fields_test_node_form_alter(&$form, &$form_state) {
+  // Attach styles and behaviours.
+  $form['#attached']['css'][] = drupal_get_path('module', 'localize_fields_test') . '/css/localize_fields_test.nodeform.css';
+  $form['#attached']['js'][] = drupal_get_path('module', 'localize_fields_test') . '/js/localize_fields_test.nodeform.js';
+}
