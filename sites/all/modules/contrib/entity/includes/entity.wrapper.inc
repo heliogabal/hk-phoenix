@@ -734,6 +734,12 @@ class EntityDrupalWrapper extends EntityStructureWrapper {
    */
   public function set($value) {
     if (!$this->validate($value)) {
+drupal_set_message('Entity Wrapper: Invalid data value given: '. $value);
+       drupal_set_message('Entity Wrapper: Invalid data value given info [type]: '. $value->info['type']);
+       drupal_set_message('Entity Wrapper: Invalid data value given info: '. $value->info);
+       drupal_set_message('Entity Wrapper: Invalid data value given type: '. $value->type);
+       drupal_set_message('Entity Wrapper: Invalid data value given id: '. $value->id);
+       drupal_set_message('Entity Wrapper: Invalid data value given data: '. $value->data);
       throw new EntityMetadataWrapperException('Invalid data value given. Be sure it matches the required data type and format.');
     }
     if ($this->info['type'] == 'entity' && $value === $this) {
